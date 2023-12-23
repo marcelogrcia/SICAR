@@ -205,7 +205,7 @@ class Sicar(Url):
         if content_length == 0 or not content_type.startswith("application/zip"):
             raise FailedToDownloadShapefileException()
 
-        path = Path(os.path.join(folder, f"SHAPE_{state}")).with_suffix(".zip")
+        path = Path(os.path.join(folder, f"SHAPE_{state}_{type}")).with_suffix(".zip")
 
         with open(path, "wb") as fd:
             with tqdm(
